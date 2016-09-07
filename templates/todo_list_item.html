@@ -1,5 +1,5 @@
 <li>
   <button ng-click="removeItem(item)">x</button>
   <input type="checkbox" ng-model="item.isDone">
-  {{ item.text }}
+  <a ui-sref="todo({ id: item.id })">{{ item.text }}</a>
 </li>

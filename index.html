@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Todo List</title>
+  <link rel="stylesheet" href="jquery-ui.min.css">
 
   <style>
     .component {
@@ -15,7 +16,29 @@
 </head>
 <body>
 
-<todo-list-container class="component"></todo-list-container>
+<h1 class="component">Todo List</h1>
+
+<form name="form" class="component">
+  <h1>is valid - {{ form.name.$valid }}</h1>
+  <h1>is ditry - {{ form.name.$dirty }}</h1>
+  <h3>{{ form.name.$error }}</h3>
+  <input name="name" type="text" ng-model="name" email-validator required="true">
+</form>
+
+<div class="component" ng-controller="appController as appCtrl">
+  <ul class="component">
+    <li ng-repeat="post in appCtrl.posts">
+      <h3>{{ post.title }}</h3>
+      <p>{{ post.body }}</p>
+    </li>
+  </ul>
+
+  <input type="date" ng-model="appCtrl.date">
+  <h1>{{ appCtrl.date | date }}</h1>
+  <input type="text" datepicker ng-model="appCtrl.date">
+
+  <!-- <ui-view></ui-view> -->
+</div>
 
 <script src="dist/bundle.js"></script>
 </body>
